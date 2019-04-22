@@ -14,10 +14,9 @@ do {
     numbers.push(Number(input));
   }
 } while(input !== null)
-numbers.pop(numbers[numbers.length - 1]);
-if(numbers.length > 0) {
-  for(let i = 0; i < numbers.length; i += 1) {
-    total = total + numbers[i];
+if(numbers.length) {
+  for(const number of numbers) {
+    total = total + number;
   }
   console.log(`Общая сумма чисел равна ${total}`);
 }
