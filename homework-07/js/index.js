@@ -133,6 +133,7 @@ const getUniqueSkills = users => {
     return skills;
   }, []);
   const uniqueSkills = [];
+  // uniqueSkills = allSkills.filter((el, index, arr) => index === arr.indexOf(el)).sort();
   allSkills.forEach((skill) => {
     if(!uniqueSkills.includes(skill)) {
       uniqueSkills.push(skill);
