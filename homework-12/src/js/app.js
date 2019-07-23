@@ -9,7 +9,7 @@ const notyf = new Notyf();
 const shortid = require('shortid');
 
 
-const notepad = new Notepad(localNotes);
+const notepad = new Notepad();
 
 const btnOpenModal = document.querySelector(`button[data-action='open-editor']`);
 const formNoteEditor = document.querySelector('.note-editor');
