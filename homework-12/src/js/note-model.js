@@ -1,9 +1,9 @@
 import {PRIORITY_TYPES} from './utils/constants';
 
 export class Notepad {
-  constructor() {
-    // this._notes = notes;
-    this._notes = JSON.parse(localStorage.getItem('notes')) ? JSON.parse(localStorage.getItem('notes')) : [];
+  constructor(notes) {
+    this._notes = notes;
+    // this._notes = JSON.parse(localStorage.getItem('notes')) ? JSON.parse(localStorage.getItem('notes')) : [];
   }
 
   get notes() {
@@ -15,10 +15,11 @@ export class Notepad {
   }
 
   saveNote(note) {
-    return new Promise((resolve,reject) => {
+    return new Promise((resolve, reject) => {
       setTimeout(() => {
         this._notes.push(note);
         localStorage.setItem('notes', JSON.stringify(this._notes));
+        console.log(this._notes);
         resolve(note);
       }, 200);
     });
@@ -28,8 +29,8 @@ export class Notepad {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         this._notes = this._notes.filter(item => item.id !== id);
-        console.log(this._notes);
         localStorage.setItem('notes', JSON.stringify(this._notes));
+        console.log(this._notes);
         resolve(this._notes);
       }, 200);
     });

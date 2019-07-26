@@ -2,14 +2,15 @@ import {Notyf} from 'notyf';
 import MicroModal from 'micromodal';
 import {NOTIFICATION_MESSAGES, NOTE_ACTIONS} from './utils/constants';
 import {Notepad} from './note-model';
+import initialNotes from '../assets/notes.json';
 import 'notyf/notyf.min.css';
-import {noteList, addListItem, createListItemMarkup, localNotes} from './view';
+import {noteList, addListItem, createListItemMarkup} from './view';
 
 const notyf = new Notyf();
 const shortid = require('shortid');
 
 
-const notepad = new Notepad();
+const notepad = new Notepad(JSON.parse(localStorage.getItem('notes')) ? JSON.parse(localStorage.getItem('notes')) : initialNotes);
 
 const btnOpenModal = document.querySelector(`button[data-action='open-editor']`);
 const formNoteEditor = document.querySelector('.note-editor');
@@ -94,4 +95,4 @@ formNoteEditor.addEventListener('submit', addNote);
 noteList.addEventListener('click', handleListClick);
 serchFormInput.addEventListener('input', serchByQuery);
 
-export {localNotes};
+// export {localNotes};
